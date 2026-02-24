@@ -3,6 +3,10 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+# Carregando os dados
+url = "https://raw.githubusercontent.com/acidBits/Hello_world_app/refs/heads/main/movies.csv"
+df = pd.read_csv(url)
+
 
 # Tratando os gêneros: separando por vírgula e limpando espaços
 generos_series = df['generos'].dropna().apply(lambda x: [g.strip() for g in x.split(',')])
