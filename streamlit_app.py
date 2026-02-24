@@ -38,7 +38,8 @@ def recomendar_por_genero(generos_usuario, df, vectorizer, X):
 # Interface Streamlit
 st.title("🎬 Me indique Um filme")
 st.write('')
-
+st.info('Este projeto é um sistema de recomendação de filmes baseado em Machine Learning. Ele utiliza técnicas de processamento de linguagem natural (TF‑IDF) para analisar os gêneros dos filmes e calcular a similaridade de cosseno entre as escolhas do usuário e o banco de dados. Assim, o app sugere de forma personalizada os títulos que mais combinam com os gêneros selecionados.
+')
 col1, col2, col3 = st.columns(3)
 
 with col1:
