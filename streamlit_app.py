@@ -6,8 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # Carregando os dados
 url = "https://raw.githubusercontent.com/acidBits/Hello_world_app/refs/heads/main/movies.csv"
 df = pd.read_csv(url)
-
-df['generos'] = df['generos'].fillna("")
+df['generos'] = df['generos'].fillna("") #tratando celulas vazias
 
 # Inicializando o vetorizador
 vectorizer = TfidfVectorizer()
@@ -38,8 +37,10 @@ def recomendar_por_genero(generos_usuario, df, vectorizer, X):
 #-------------------------------------------------------------------------------
 # Interface Streamlit
 st.title("🎬 Me indique Um filme")
+st.write('')
 
 col1, col2, col3 = st.columns(3)
+
 with col1:
     genero1 = st.selectbox("Gênero 1:", generos_unicos, key="g1")
 with col2:
