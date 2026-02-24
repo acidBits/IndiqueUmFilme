@@ -16,6 +16,8 @@ generos_unicos = sorted(set(g for sublist in generos_series for g in sublist))
 generos_unicos.insert(0,"")
 
 
+st.write(generos_unicos)
+
 col1, col2, col3 = st.columns(3)
 with col1:
     genero1 = st.selectbox("Gênero 1", generos_unicos, key="g1")
