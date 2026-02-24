@@ -7,6 +7,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 url = "https://raw.githubusercontent.com/acidBits/Hello_world_app/refs/heads/main/movies.csv"
 df = pd.read_csv(url)
 
+df['generos'] = df['generos'].fillna("")
+
 # Inicializando o vetorizador
 vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform(df['generos'])
