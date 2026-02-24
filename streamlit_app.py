@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics.pairwise import cosine_similarity 
 
 # Carregando os dados
 url = "https://raw.githubusercontent.com/acidBits/Hello_world_app/refs/heads/main/movies.csv"
@@ -18,7 +18,7 @@ generos_unicos.insert(0,"")
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    genero1 = st.selectbox("Gênero 1", "", key="g1")
+    genero1 = st.selectbox("Gênero 1", generos_unicos, key="g1")
 with col2:
     genero2 = st.selectbox("Gênero 2", "", key="g2")
 with col3:
