@@ -31,13 +31,13 @@ def recomendar_por_genero(generos_usuario, df, vectorizer, X):
 
     # Ordenando os filmes com maior similaridade
     df['similaridade'] = similaridade
-    recomendacoes = df.sort_values(by=['similaridade','pontuacao'], ascending=False).head()
+    recomendacoes = df.sort_values(by=['similaridade','pontuacao'], ascending=False).head(10)
 
     return recomendacoes[['filme','pontuacao','ano','generos','similaridade']].reset_index(drop=True)
 
 #-------------------------------------------------------------------------------
 # Interface Streamlit
-st.title("🎬 Recomendador de Filmes por Gênero")
+st.title("🎬 Me indique Um filme")
 
 col1, col2, col3 = st.columns(3)
 with col1:
