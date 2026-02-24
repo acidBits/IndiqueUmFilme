@@ -33,7 +33,7 @@ with col3:
 #entrada_usuario = ", ".join(generos_escolhidos)
 
 # Recomendar filmes
-if st.button("🔍 Pesquisar"):
+if st.button("🔍 testar"):
     st.write("")
 
 
