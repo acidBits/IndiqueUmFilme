@@ -7,6 +7,13 @@ from sklearn.metrics.pairwise import cosine_similarity
 url = "https://raw.githubusercontent.com/acidBits/Hello_world_app/refs/heads/main/movies.csv"
 df = pd.read_csv(url)
 
+# Inicializando o vetorizador
+vectorizer = TfidfVectorizer()
+X = vectorizer.fit_transform(df['generos'])
+generos_agrupados = df.explode('generos')['generos'].unique()
+generos_unicos = sorted(set(g for lista in generos_agrupados for g in lista.split(', ')))
+
+
 # Tratando os gêneros: separando por vírgula e limpando espaços
 generos_series = df['generos'].dropna().apply(lambda x: [g.strip() for g in x.split(',')])
 
@@ -29,7 +36,25 @@ entrada_usuario = ", ".join(generos_escolhidos)
 
 # Recomendar filmes
 if st.button("🔍 Pesquisar"):
-    st.write(entrada_usuario)
+    ao_clicar
 
 
+def ao_clicar():
+    recomendacoes = recomendar_por_genero(entrada_usuario, df, vectorizer, X)
+    
+recomendacoes
 
+#-------------------------------------------------------------------------------
+#Funcao de Recomendação
+def recomendar_por_genero(generos_usuario, df, vectorizer, X):
+    # Vetor do gênero informado pelo usuário
+    genero_vetor = vectorizer.transform([generos_usuario])
+
+    # Calculando similaridade entre o input e os filmes
+    similaridade = cosine_similarity(genero_vetor, X)[0]
+
+    # Ordenando os filmes com maior similaridade
+    df['similaridade'] = similaridade
+    recomendacoes = df.sort_values(by=['similaridade','pontuacao'], ascending=False).head()
+   
+    return recomendacoes[['filme','pontuacao','ano', 'generos', 'similaridade']].reset_index(drop=True)
