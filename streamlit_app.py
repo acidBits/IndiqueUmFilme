@@ -8,6 +8,8 @@ url = "https://raw.githubusercontent.com/acidBits/Hello_world_app/refs/heads/mai
 df = pd.read_csv(url)
 
 
+st.write(df)
+
 # Tratando os gêneros: separando por vírgula e limpando espaços
 generos_series = df['generos'].dropna().apply(lambda x: [g.strip() for g in x.split(',')])
 
