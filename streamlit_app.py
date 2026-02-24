@@ -4,7 +4,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 
-
 col1, col2, col3 = st.columns(3)
 with col1:
     genero1 = st.selectbox("Gênero 1", "", key="g1")
@@ -20,4 +19,6 @@ with col3:
 # Recomendar filmes
 if st.button("🔍 Pesquisar"):
     st.write("")
+
+
 
