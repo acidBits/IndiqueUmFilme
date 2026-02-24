@@ -41,11 +41,11 @@ st.title("🎬 Me indique Um filme")
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    genero1 = st.selectbox("Gênero 1", generos_unicos, key="g1")
+    genero1 = st.selectbox("Gênero 1:", generos_unicos, key="g1")
 with col2:
-    genero2 = st.selectbox("Gênero 2", generos_unicos, key="g2")
+    genero2 = st.selectbox("Gênero 2:", generos_unicos, key="g2")
 with col3:
-    genero3 = st.selectbox("Gênero 3", generos_unicos, key="g3")
+    genero3 = st.selectbox("Gênero 3:", generos_unicos, key="g3")
 
 # Gêneros selecionados
 generos_escolhidos = [g for g in [genero1, genero2, genero3] if g]
