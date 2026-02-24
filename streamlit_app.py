@@ -1,4 +1,4 @@
-import streamlit as st
+quiimport streamlit as st
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity 
@@ -24,12 +24,12 @@ with col3:
     genero3 = st.selectbox("Gênero 3",generos_unicos, key="g3")
 
 # Gêneros selecionados
-#generos_escolhidos = [g for g in [genero1, genero2, genero3] if g]
-#entrada_usuario = ", ".join(generos_escolhidos)
+generos_escolhidos = [g for g in [genero1, genero2, genero3] if g]
+entrada_usuario = ", ".join(generos_escolhidos)
 
 # Recomendar filmes
-if st.button("🔍 testar"):
-    st.write("")
+if st.button("🔍 Pesquisar"):
+    st.write(entrada_usuario)
 
 
 
